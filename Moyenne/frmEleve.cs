@@ -53,7 +53,7 @@ namespace Moyenne
                 ElevesInt.Prenom = txtPrenom.Text;
                 ElevesInt.Nom = txtNom.Text;
                 cmdValiderTest();
-                updateStatus();
+                //updateStatus();
             }
             else
             {
@@ -69,8 +69,8 @@ namespace Moyenne
                 frmNote noteModif = new frmNote();
                 noteModif.NotesInt = (Notes) lstNotes.SelectedItem;
                 int index = lstNotes.SelectedIndex;
-                noteModif.NotesInt.NotesEntier = noteModif.NotesInt.DeConvertionEntier((decimal)5.9);
-                noteModif.NotesInt.NotesDecimale = noteModif.NotesInt.DeConvertionDecimale((decimal)5.9);
+                noteModif.NotesInt.NotesEntier = noteModif.NotesInt.DeConvertionEntier((decimal)lstNotes.SelectedItem);
+                noteModif.NotesInt.NotesDecimale = noteModif.NotesInt.DeConvertionDecimale((decimal)lstNotes.SelectedItem);
 
             }
                 
