@@ -13,10 +13,6 @@ namespace Moyenne
             
         }
 
-        public Notes(decimal note)
-        {
-           
-        }
 
         public decimal NotesDecimale { set; get; }
 

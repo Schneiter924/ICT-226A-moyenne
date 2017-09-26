@@ -71,7 +71,7 @@ namespace Moyenne
                 int index = lstNotes.SelectedIndex;
                 noteModif.NotesInt.NotesEntier = noteModif.NotesInt.DeConvertionEntier((decimal)lstNotes.SelectedItem);
                 noteModif.NotesInt.NotesDecimale = noteModif.NotesInt.DeConvertionDecimale((decimal)lstNotes.SelectedItem);
-
+                
             }
                 
             
