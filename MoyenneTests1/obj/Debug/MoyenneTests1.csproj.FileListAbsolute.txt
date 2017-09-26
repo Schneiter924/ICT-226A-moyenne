@@ -1,0 +1,9 @@
+P:\CPNV-ste-croix\2eme annee\trimestre 1\ICT-226A\classe\ICT-226A-moyenne\MoyenneTests1\bin\Debug\MoyenneTests1.dll
+P:\CPNV-ste-croix\2eme annee\trimestre 1\ICT-226A\classe\ICT-226A-moyenne\MoyenneTests1\bin\Debug\MoyenneTests1.pdb
+P:\CPNV-ste-croix\2eme annee\trimestre 1\ICT-226A\classe\ICT-226A-moyenne\MoyenneTests1\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+P:\CPNV-ste-croix\2eme annee\trimestre 1\ICT-226A\classe\ICT-226A-moyenne\MoyenneTests1\bin\Debug\Moyenne.exe
+P:\CPNV-ste-croix\2eme annee\trimestre 1\ICT-226A\classe\ICT-226A-moyenne\MoyenneTests1\bin\Debug\Moyenne.pdb
+P:\CPNV-ste-croix\2eme annee\trimestre 1\ICT-226A\classe\ICT-226A-moyenne\MoyenneTests1\bin\Debug\fr\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+P:\CPNV-ste-croix\2eme annee\trimestre 1\ICT-226A\classe\ICT-226A-moyenne\MoyenneTests1\obj\Debug\MoyenneTests1.csprojResolveAssemblyReference.cache
+P:\CPNV-ste-croix\2eme annee\trimestre 1\ICT-226A\classe\ICT-226A-moyenne\MoyenneTests1\obj\Debug\MoyenneTests1.dll
+P:\CPNV-ste-croix\2eme annee\trimestre 1\ICT-226A\classe\ICT-226A-moyenne\MoyenneTests1\obj\Debug\MoyenneTests1.pdb

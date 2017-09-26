@@ -28,8 +28,8 @@ namespace Moyenne
         public frmEleve()
         {
             InitializeComponent();
-
-            updateStatus();
+            //updateStatus();
+            
                        
         }
         
@@ -48,7 +48,10 @@ namespace Moyenne
                     moyennne += note;
                 }
                 moyennne /= ElevesInt.NoteEleve.Count();
+                ElevesInt.Moyenne = moyennne;
                 txtMoyenne.Text = moyennne.ToString();
+                ElevesInt.Prenom = txtPrenom.Text;
+                ElevesInt.Nom = txtNom.Text;
                 cmdValiderTest();
                 updateStatus();
             }
@@ -61,8 +64,18 @@ namespace Moyenne
 
         private void cmdModifier_Click(object sender, EventArgs e)
         {
-            frmNote noteModif = new frmNote();
+            if (lstNotes.SelectedIndex != -1)
+            {
+                frmNote noteModif = new frmNote();
+                noteModif.NotesInt = (Notes) lstNotes.SelectedItem;
+                int index = lstNotes.SelectedIndex;
+                noteModif.NotesInt.NotesEntier = noteModif.NotesInt.DeConvertionEntier((decimal)5.9);
+                noteModif.NotesInt.NotesDecimale = noteModif.NotesInt.DeConvertionDecimale((decimal)5.9);
 
+            }
+                
+            
+            
         }
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
@@ -102,6 +115,7 @@ namespace Moyenne
             if ((txtMoyenne.Text != "")&&(txtNom.Text != "")&&(txtPrenom.Text != ""))
             {
                 cmdValider.Enabled = true;
+                
             }
             else
             {

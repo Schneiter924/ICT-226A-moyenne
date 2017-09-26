@@ -15,7 +15,7 @@ namespace Moyenne
         public frmMoyenne()
         {
             InitializeComponent();
-            cmdModifier.Enabled = false;
+            //cmdModifier.Enabled = false;
             cmdSupprimer.Enabled = false;
         }
 
@@ -26,7 +26,7 @@ namespace Moyenne
             ajouEleve.ElevesInt.NoteEleve = new List<decimal>();
             if (ajouEleve.ShowDialog(this) == DialogResult.OK)
             {
-                
+                lstEleves.Items.Add(ajouEleve.ElevesInt);
             }
             else
             {
