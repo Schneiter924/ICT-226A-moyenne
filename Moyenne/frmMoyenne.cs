@@ -15,7 +15,7 @@ namespace Moyenne
         public frmMoyenne()
         {
             InitializeComponent();
-            //cmdModifier.Enabled = false;
+            cmdModifier.Enabled = false;
             cmdSupprimer.Enabled = false;
         }
 
@@ -36,19 +36,54 @@ namespace Moyenne
 
         private void cmdModifier_Click(object sender, EventArgs e)
         {
-
+            if (lstEleves.SelectedIndex != -1)
+            {
+                frmEleve modifEleve = new frmEleve();
+                modifEleve.ElevesInt = (Eleves)lstEleves.SelectedItem;
+                int index = lstEleves.SelectedIndex;
+                if (modifEleve.ShowDialog(this) == DialogResult.OK)
+                {
+                    lstEleves.Items.RemoveAt(index);
+                    lstEleves.Items.Insert(index, modifEleve.ElevesInt);
+                }
+            }
+            
         }
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
-            DialogResult supprimer = MessageBox.Show("Confirmez-vous la suppression ?", "Suppression d'un élève",MessageBoxButtons.YesNo);
-            if (supprimer == DialogResult.Yes)
+            if (lstEleves.SelectedIndex != -1)
             {
+                DialogResult supprimer = MessageBox.Show("Confirmez-vous la suppression ?", "Suppression d'un élève", MessageBoxButtons.YesNo);
+                if (supprimer == DialogResult.Yes)
+                {
+                    int index = lstEleves.SelectedIndex;
+                    lstEleves.Items.RemoveAt(index);
+                }
+                else if (supprimer == DialogResult.No)
+                {
 
+                }
             }
-            else if (supprimer == DialogResult.No)
-            {
+            
+        }
 
+        private void lstEleves_Click(object sender, EventArgs e)
+        {
+            updateStatus();
+        }
+
+        private void updateStatus()
+        {
+            if (lstEleves.SelectedIndex > -1)
+            {
+                cmdModifier.Enabled = true;
+                cmdSupprimer.Enabled = true;
+            }
+            else
+            {
+                cmdModifier.Enabled = false;
+                cmdSupprimer.Enabled = false;
             }
         }
     }

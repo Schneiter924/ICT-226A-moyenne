@@ -25,18 +25,6 @@ namespace Moyenne
             return test;
         }
 
-        public decimal DeConvertionEntier(decimal note)
-        {
-            int entier = (int)note;
-            return entier;
-        }
-        public decimal DeConvertionDecimale(decimal note)
-        {
-            int entier = (int)note;
-            int decimale = (int)((note * 10) - (10 * entier));
-            return decimale;
-        }
-
         public override string ToString()
         {
             string note = "";

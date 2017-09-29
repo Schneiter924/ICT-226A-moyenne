@@ -55,6 +55,7 @@
             this.lstEleves.Name = "lstEleves";
             this.lstEleves.Size = new System.Drawing.Size(230, 394);
             this.lstEleves.TabIndex = 0;
+            this.lstEleves.Click += new System.EventHandler(this.lstEleves_Click);
             // 
             // grbAction
             // 

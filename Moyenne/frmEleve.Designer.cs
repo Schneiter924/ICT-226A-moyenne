@@ -145,6 +145,7 @@
             this.lstNotes.Name = "lstNotes";
             this.lstNotes.Size = new System.Drawing.Size(66, 95);
             this.lstNotes.TabIndex = 3;
+            this.lstNotes.Click += new System.EventHandler(this.lstNotes_Click);
             // 
             // cmdSupprimer
             // 
@@ -221,6 +222,7 @@
             this.MinimizeBox = false;
             this.Name = "frmEleve";
             this.Text = "Elève";
+            this.Load += new System.EventHandler(this.frmEleve_Load);
             this.grbDonnees.ResumeLayout(false);
             this.grbDonnees.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picEleve)).EndInit();

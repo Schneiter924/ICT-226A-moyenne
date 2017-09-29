@@ -28,7 +28,8 @@ namespace Moyenne
         public frmEleve()
         {
             InitializeComponent();
-            //updateStatus();
+            cmdModifier.Enabled = false;
+            cmdSupprimer.Enabled = false;
             
                        
         }
@@ -38,22 +39,13 @@ namespace Moyenne
             frmNote noteAjou = new frmNote();
             noteAjou.NotesInt = new Notes();
             noteAjou.NotesInt.NotesEntier = 1;
-            decimal moyennne = 0;
+            
             if (noteAjou.ShowDialog(this) == DialogResult.OK)
             {
                 lstNotes.Items.Add(noteAjou.NotesInt);
                 ElevesInt.NoteEleve.Add(noteAjou.NotesInt.Convertion());
-                foreach (decimal note in ElevesInt.NoteEleve)
-                {
-                    moyennne += note;
-                }
-                moyennne /= ElevesInt.NoteEleve.Count();
-                ElevesInt.Moyenne = moyennne;
-                txtMoyenne.Text = moyennne.ToString();
-                ElevesInt.Prenom = txtPrenom.Text;
-                ElevesInt.Nom = txtNom.Text;
+                calculMoyenne();
                 cmdValiderTest();
-                //updateStatus();
             }
             else
             {
@@ -69,8 +61,19 @@ namespace Moyenne
                 frmNote noteModif = new frmNote();
                 noteModif.NotesInt = (Notes) lstNotes.SelectedItem;
                 int index = lstNotes.SelectedIndex;
-                noteModif.NotesInt.NotesEntier = noteModif.NotesInt.DeConvertionEntier((decimal)lstNotes.SelectedItem);
-                noteModif.NotesInt.NotesDecimale = noteModif.NotesInt.DeConvertionDecimale((decimal)lstNotes.SelectedItem);
+                if (noteModif.ShowDialog(this) == DialogResult.OK)
+                {
+                    lstNotes.Items.RemoveAt(index);
+                    ElevesInt.NoteEleve.RemoveAt(index);
+                    ElevesInt.NoteEleve.Insert(index, noteModif.NotesInt.Convertion());
+                    lstNotes.Items.Insert(index, noteModif.NotesInt);
+                    calculMoyenne();
+                    cmdValiderTest();
+                }
+                else
+                {
+
+                }
                 
             }
                 
@@ -80,15 +83,23 @@ namespace Moyenne
 
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
-            DialogResult supprimer = MessageBox.Show("Confirmez-vous la suppression ?", "Suppression d'une Note", MessageBoxButtons.YesNo);
-            if (supprimer == DialogResult.Yes)
+            if (lstNotes.SelectedIndex != -1)
             {
+                DialogResult supprimer = MessageBox.Show("Confirmez-vous la suppression ?", "Suppression d'une Note", MessageBoxButtons.YesNo);
+                if (supprimer == DialogResult.Yes)
+                {
+                    int index = lstNotes.SelectedIndex;
+                    lstNotes.Items.RemoveAt(index);
+                    ElevesInt.NoteEleve.RemoveAt(index);
+                    calculMoyenne();
+                    cmdValiderTest();
+                }
+                else if (supprimer == DialogResult.No)
+                {
 
+                }
             }
-            else if (supprimer == DialogResult.No)
-            {
-
-            }
+            
         }
 
         private void cmdAnnuler_Click(object sender, EventArgs e)
@@ -135,7 +146,7 @@ namespace Moyenne
 
         private void updateStatus()
         {
-            if (lstNotes.SelectedIndex != -1)
+            if (lstNotes.SelectedIndex > -1)
             {
                 cmdModifier.Enabled = true;
                 cmdSupprimer.Enabled = true;
@@ -145,6 +156,36 @@ namespace Moyenne
                 cmdModifier.Enabled = false;
                 cmdSupprimer.Enabled = false;
             }
+        }
+
+        
+        private void lstNotes_Click(object sender, EventArgs e)
+        {
+            updateStatus();
+        }
+
+        private void calculMoyenne()
+        {
+            decimal moyennne = 0;
+            foreach (decimal note in ElevesInt.NoteEleve)
+            {
+                
+                moyennne += note;
+            }
+            moyennne /= ElevesInt.NoteEleve.Count();
+            ElevesInt.Moyenne = moyennne;
+            txtMoyenne.Text = moyennne.ToString("F1");
+            ElevesInt.Prenom = txtPrenom.Text;
+            ElevesInt.Nom = txtNom.Text;
+        }
+
+        
+        private void frmEleve_Load(object sender, EventArgs e)
+        {
+            txtMoyenne.Text = ElevesInt.Moyenne.ToString("F1");
+            txtNom.Text = ElevesInt.Nom;
+            txtPrenom.Text = ElevesInt.Prenom;
+
         }
     }
 }
