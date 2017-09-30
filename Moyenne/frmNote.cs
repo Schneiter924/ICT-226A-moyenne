@@ -35,7 +35,7 @@ namespace Moyenne
         }
 
         /// <summary>
-        /// bouton pour annuler la saisie de la note
+        /// Bouton pour annuler la saisie de la note
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -52,10 +52,28 @@ namespace Moyenne
             }
         }
 
+        /// <summary>
+        /// Bouton pour valider la note entrée
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdValider_Click(object sender, EventArgs e)
         {
             notesInt.NotesDecimale = nudDecimal.Value;
             notesInt.NotesEntier = nudEntier.Value;
+            if ((notesInt.NotesEntier == 6) && (notesInt.NotesDecimale > 0))
+            {
+                string message = "Vous avez mis une note plus grand que 6 la note va être de 6.0";
+                string caption = "Note impossible";
+                MessageBoxButtons bouton = MessageBoxButtons.OK;
+                MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
+                notesInt.NotesDecimale = 0;
+                notesInt.NotesEntier = 6;
+            }
+            else
+            {
+                
+            }
         }
 
         private void frmNote_Load(object sender, EventArgs e)

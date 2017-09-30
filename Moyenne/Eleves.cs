@@ -31,19 +31,19 @@ namespace Moyenne
         public string Image { set; get; }
 
         /// <summary>
-        /// 
+        /// Permet de récuper ou d'ajouter une Moyenne
         /// </summary>
         public decimal Moyenne { set; get; }
 
         /// <summary>
-        /// 
+        /// déclare une list qui contient les notes de élève
         /// </summary>
         public List<decimal> NoteEleve { set; get; }
 
         /// <summary>
-        /// 
+        /// override la fonction ToString()
         /// </summary>
-        /// <returns></returns>
+        /// <returns>retourne le prénom le nom et la moyenne</returns>
         public override string ToString()
         {
             string chaine = Prenom + " " + Nom + " " + Moyenne;

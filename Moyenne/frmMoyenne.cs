@@ -13,9 +13,7 @@ namespace Moyenne
     
     public partial class frmMoyenne : Form
     {
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public frmMoyenne()
         {
             InitializeComponent();
@@ -24,7 +22,7 @@ namespace Moyenne
         }
 
         /// <summary>
-        /// 
+        /// Bouton pour ajouter un élève
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -44,7 +42,7 @@ namespace Moyenne
         }
 
         /// <summary>
-        /// 
+        /// Bouton pour modifier un élève
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -65,7 +63,7 @@ namespace Moyenne
         }
 
         /// <summary>
-        /// 
+        /// Bouton pour supprimer un élève
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -86,19 +84,14 @@ namespace Moyenne
             }
             
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        
         private void lstEleves_Click(object sender, EventArgs e)
         {
             updateStatus();
         }
 
         /// <summary>
-        /// 
+        /// Fonction qui regarde s'il y a un élève qui est sélectionné
         /// </summary>
         private void updateStatus()
         {

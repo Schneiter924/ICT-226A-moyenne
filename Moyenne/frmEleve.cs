@@ -30,7 +30,7 @@ namespace Moyenne
             }
         }
         /// <summary>
-        /// 
+        /// Initialisation du form 
         /// </summary>
         public frmEleve()
         {
@@ -42,7 +42,7 @@ namespace Moyenne
         }
         
         /// <summary>
-        /// bouton pour ajouter un élève
+        /// Bouton pour ajouter une note
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -67,7 +67,7 @@ namespace Moyenne
         }
 
         /// <summary>
-        /// bouton pour modifier un élève
+        /// Bouton pour modifier une note
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -99,7 +99,7 @@ namespace Moyenne
         }
 
         /// <summary>
-        /// bouton pour supprimer un élève
+        /// Bouton pour supprimer une note
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -125,7 +125,7 @@ namespace Moyenne
         }
 
         /// <summary>
-        /// bouton pour annuler la saisie d'un élève
+        /// Bouton pour annuler la saisie d'un élève
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -143,7 +143,7 @@ namespace Moyenne
         }
                 
         /// <summary>
-        /// test si le bouton valider doit être actif ou non
+        /// Test si le bouton valider doit être actif ou non
         /// </summary>
         private void cmdValiderTest()
         {
@@ -157,21 +157,19 @@ namespace Moyenne
                 cmdValider.Enabled = false;
             }
         }
-
-        
+                
         private void txtNom_TextChanged(object sender, EventArgs e)
         {
             cmdValiderTest();
         }
-
-        
+                
         private void txtPrenom_TextChanged(object sender, EventArgs e)
         {
             cmdValiderTest();
         }
 
         /// <summary>
-        /// 
+        /// Fonction qui regarde s'il y a une note qui est sélectionné
         /// </summary>
         private void updateStatus()
         {
@@ -187,15 +185,14 @@ namespace Moyenne
             }
         }
 
-        
-        
+                
         private void lstNotes_Click(object sender, EventArgs e)
         {
             updateStatus();
         }
 
         /// <summary>
-        /// calcul la moiyenne de l'élève
+        /// Calcul la moyenne de l'élève
         /// </summary>
         private void calculMoyenne()
         {
@@ -213,11 +210,7 @@ namespace Moyenne
             ElevesInt.Nom = txtNom.Text;
         }
         
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        
         private void frmEleve_Load(object sender, EventArgs e)
         {
             txtMoyenne.Text = ElevesInt.Moyenne.ToString("F1");
