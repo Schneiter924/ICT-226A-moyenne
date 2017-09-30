@@ -28,11 +28,17 @@ namespace Moyenne
                 notesInt = value;
             }
         }
+      
         public frmNote()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// bouton pour annuler la saisie de la note
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdAnnuler_Click(object sender, EventArgs e)
         {
             DialogResult annuler = MessageBox.Show("Confirmez-vous l'annulation ?", "Suppression de la saisie", MessageBoxButtons.YesNo);

@@ -10,8 +10,12 @@ using System.Windows.Forms;
 
 namespace Moyenne
 {
+    
     public partial class frmMoyenne : Form
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public frmMoyenne()
         {
             InitializeComponent();
@@ -19,6 +23,11 @@ namespace Moyenne
             cmdSupprimer.Enabled = false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdAjouter_Click(object sender, EventArgs e)
         {
             frmEleve ajouEleve = new frmEleve();
@@ -34,6 +43,11 @@ namespace Moyenne
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdModifier_Click(object sender, EventArgs e)
         {
             if (lstEleves.SelectedIndex != -1)
@@ -50,6 +64,11 @@ namespace Moyenne
             
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
             if (lstEleves.SelectedIndex != -1)
@@ -68,11 +87,19 @@ namespace Moyenne
             
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstEleves_Click(object sender, EventArgs e)
         {
             updateStatus();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void updateStatus()
         {
             if (lstEleves.SelectedIndex > -1)

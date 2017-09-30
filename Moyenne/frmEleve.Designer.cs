@@ -207,7 +207,6 @@
             this.cmdValider.TabIndex = 0;
             this.cmdValider.Text = "Valider";
             this.cmdValider.UseVisualStyleBackColor = true;
-            this.cmdValider.Click += new System.EventHandler(this.cmdValider_Click);
             // 
             // frmEleve
             // 

@@ -30,10 +30,20 @@ namespace Moyenne
         /// </summary>
         public string Image { set; get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public decimal Moyenne { set; get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public List<decimal> NoteEleve { set; get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             string chaine = Prenom + " " + Nom + " " + Moyenne;

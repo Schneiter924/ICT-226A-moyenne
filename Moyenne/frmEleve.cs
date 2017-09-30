@@ -10,8 +10,12 @@ using System.Windows.Forms;
 
 namespace Moyenne
 {
+    
     public partial class frmEleve : Form
     {
+        /// <summary>
+        /// Création de la classe eleves
+        /// </summary>
         private Eleves elevesInt;
 
         public Eleves ElevesInt
@@ -25,15 +29,23 @@ namespace Moyenne
                 elevesInt = value;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public frmEleve()
         {
             InitializeComponent();
             cmdModifier.Enabled = false;
             cmdSupprimer.Enabled = false;
-            
+            cmdValiderTest();
                        
         }
         
+        /// <summary>
+        /// bouton pour ajouter un élève
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdAjouter_Click(object sender, EventArgs e)
         {
             frmNote noteAjou = new frmNote();
@@ -54,6 +66,11 @@ namespace Moyenne
             
         }
 
+        /// <summary>
+        /// bouton pour modifier un élève
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdModifier_Click(object sender, EventArgs e)
         {
             if (lstNotes.SelectedIndex != -1)
@@ -81,6 +98,11 @@ namespace Moyenne
             
         }
 
+        /// <summary>
+        /// bouton pour supprimer un élève
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdSupprimer_Click(object sender, EventArgs e)
         {
             if (lstNotes.SelectedIndex != -1)
@@ -102,6 +124,11 @@ namespace Moyenne
             
         }
 
+        /// <summary>
+        /// bouton pour annuler la saisie d'un élève
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdAnnuler_Click(object sender, EventArgs e)
         {
             DialogResult annuler = MessageBox.Show("Confirmez-vous l'annulation ?", "Suppression de la saisie", MessageBoxButtons.YesNo);
@@ -114,13 +141,10 @@ namespace Moyenne
 
             }
         }
-
-        private void cmdValider_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
+                
+        /// <summary>
+        /// test si le bouton valider doit être actif ou non
+        /// </summary>
         private void cmdValiderTest()
         {
             if ((txtMoyenne.Text != "")&&(txtNom.Text != "")&&(txtPrenom.Text != ""))
@@ -134,16 +158,21 @@ namespace Moyenne
             }
         }
 
+        
         private void txtNom_TextChanged(object sender, EventArgs e)
         {
             cmdValiderTest();
         }
 
+        
         private void txtPrenom_TextChanged(object sender, EventArgs e)
         {
             cmdValiderTest();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void updateStatus()
         {
             if (lstNotes.SelectedIndex > -1)
@@ -159,11 +188,15 @@ namespace Moyenne
         }
 
         
+        
         private void lstNotes_Click(object sender, EventArgs e)
         {
             updateStatus();
         }
 
+        /// <summary>
+        /// calcul la moiyenne de l'élève
+        /// </summary>
         private void calculMoyenne()
         {
             decimal moyennne = 0;
@@ -173,18 +206,28 @@ namespace Moyenne
                 moyennne += note;
             }
             moyennne /= ElevesInt.NoteEleve.Count();
+            moyennne = Math.Round(moyennne, 1);
             ElevesInt.Moyenne = moyennne;
             txtMoyenne.Text = moyennne.ToString("F1");
             ElevesInt.Prenom = txtPrenom.Text;
             ElevesInt.Nom = txtNom.Text;
         }
-
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmEleve_Load(object sender, EventArgs e)
         {
             txtMoyenne.Text = ElevesInt.Moyenne.ToString("F1");
             txtNom.Text = ElevesInt.Nom;
             txtPrenom.Text = ElevesInt.Prenom;
+            foreach (decimal note in ElevesInt.NoteEleve)
+            {
+
+                lstNotes.Items.Add(note);
+            }
 
         }
     }
