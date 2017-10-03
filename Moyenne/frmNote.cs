@@ -46,10 +46,7 @@ namespace Moyenne
             {
                 Dispose();
             }
-            else if (annuler == DialogResult.No)
-            {
-                
-            }
+            
         }
 
         /// <summary>
@@ -63,17 +60,14 @@ namespace Moyenne
             notesInt.NotesEntier = nudEntier.Value;
             if ((notesInt.NotesEntier == 6) && (notesInt.NotesDecimale > 0))
             {
-                string message = "Vous avez mis une note plus grand que 6 la note va être de 6.0";
+                string message = "Vous avez mis une note plus grand que 6 la note va être mis 6.0";
                 string caption = "Note impossible";
                 MessageBoxButtons bouton = MessageBoxButtons.OK;
                 MessageBox.Show(message, caption, bouton, MessageBoxIcon.Error);
                 notesInt.NotesDecimale = 0;
                 notesInt.NotesEntier = 6;
             }
-            else
-            {
-                
-            }
+            
         }
 
         private void frmNote_Load(object sender, EventArgs e)

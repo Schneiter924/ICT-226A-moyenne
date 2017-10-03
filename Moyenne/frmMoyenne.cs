@@ -30,7 +30,7 @@ namespace Moyenne
         {
             frmEleve ajouEleve = new frmEleve();
             ajouEleve.ElevesInt = new Eleves();
-            ajouEleve.ElevesInt.NoteEleve = new List<decimal>();
+            ajouEleve.ElevesInt.NoteEleve = new List<Notes>();
             if (ajouEleve.ShowDialog(this) == DialogResult.OK)
             {
                 lstEleves.Items.Add(ajouEleve.ElevesInt);

@@ -38,7 +38,7 @@ namespace Moyenne
         /// <summary>
         /// déclare une list qui contient les notes de élève
         /// </summary>
-        public List<decimal> NoteEleve { set; get; }
+        public List<Notes> NoteEleve { set; get; }
 
         /// <summary>
         /// override la fonction ToString()

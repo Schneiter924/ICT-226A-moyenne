@@ -55,13 +55,9 @@ namespace Moyenne
             if (noteAjou.ShowDialog(this) == DialogResult.OK)
             {
                 lstNotes.Items.Add(noteAjou.NotesInt);
-                ElevesInt.NoteEleve.Add(noteAjou.NotesInt.Convertion());
+                ElevesInt.NoteEleve.Add(noteAjou.NotesInt);
                 calculMoyenne();
                 cmdValiderTest();
-            }
-            else
-            {
-
             }
             
         }
@@ -82,15 +78,12 @@ namespace Moyenne
                 {
                     lstNotes.Items.RemoveAt(index);
                     ElevesInt.NoteEleve.RemoveAt(index);
-                    ElevesInt.NoteEleve.Insert(index, noteModif.NotesInt.Convertion());
+                    ElevesInt.NoteEleve.Insert(index, noteModif.NotesInt);
                     lstNotes.Items.Insert(index, noteModif.NotesInt);
                     calculMoyenne();
                     cmdValiderTest();
                 }
-                else
-                {
-
-                }
+                
                 
             }
                 
@@ -116,10 +109,7 @@ namespace Moyenne
                     calculMoyenne();
                     cmdValiderTest();
                 }
-                else if (supprimer == DialogResult.No)
-                {
-
-                }
+                
             }
             
         }
@@ -136,10 +126,7 @@ namespace Moyenne
             {
                 Dispose();
             }
-            else if (annuler == DialogResult.No)
-            {
-
-            }
+           
         }
                 
         /// <summary>
@@ -197,10 +184,13 @@ namespace Moyenne
         private void calculMoyenne()
         {
             decimal moyennne = 0;
-            foreach (decimal note in ElevesInt.NoteEleve)
+            foreach (Notes note in ElevesInt.NoteEleve)
             {
-                
-                moyennne += note;
+                decimal noteDecimale = note.NotesDecimale;
+                decimal noteEntier = note.NotesEntier;
+
+                decimal notes = noteEntier + (noteDecimale)/10;
+                moyennne += notes;
             }
             moyennne /= ElevesInt.NoteEleve.Count();
             moyennne = Math.Round(moyennne, 1);
@@ -216,12 +206,19 @@ namespace Moyenne
             txtMoyenne.Text = ElevesInt.Moyenne.ToString("F1");
             txtNom.Text = ElevesInt.Nom;
             txtPrenom.Text = ElevesInt.Prenom;
-            foreach (decimal note in ElevesInt.NoteEleve)
+            foreach (Notes note in ElevesInt.NoteEleve)
             {
 
                 lstNotes.Items.Add(note);
             }
 
+        }
+
+        private void cmdValider_Click(object sender, EventArgs e)
+        {
+            ElevesInt.Prenom = txtPrenom.Text;
+            ElevesInt.Nom = txtNom.Text;
+            ElevesInt.Moyenne = decimal.Parse(txtMoyenne.Text);
         }
     }
 }
